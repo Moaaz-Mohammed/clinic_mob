@@ -20,7 +20,7 @@ class CustomDrawerHeader extends StatelessWidget {
             backgroundColor: Colors.transparent,
             ),
           SizedBox(height:height * 0.015),
-          Text('Name Name',style: TextStyle(fontSize:20,fontWeight:FontWeight.bold),)
+          Text('Name Name',style: TextStyle(fontSize:20,fontWeight:FontWeight.bold,color: Colors.blueGrey),)
         ],
       ),
     );

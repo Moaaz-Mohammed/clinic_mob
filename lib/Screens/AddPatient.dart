@@ -1,5 +1,9 @@
+import 'package:clinic_mob/Widgets/CustomDialog.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+
+import 'HomeScreen.dart';
 
 class AddPatientScreen extends StatelessWidget {
   const AddPatientScreen({Key? key}) : super(key: key);
@@ -154,7 +158,26 @@ class AddPatientScreen extends StatelessWidget {
               ),
               SizedBox(height: height * 0.02,),
               InkWell(
-                onTap: (){},
+                onTap: ()
+                {
+                  if (formKey.currentState!.validate()) {
+                    final firestoreInstance =
+                        FirebaseFirestore.instance;
+                    firestoreInstance.collection("Patients").add({
+                      "name": nameController.text,
+                      "age": ageController.text,
+                      "phone": phoneController.text,
+                      "address": addressController.text,
+                      "diagnoses": diagnosesController.text,
+                      "treatment": treatmentController.text,
+                      "time": DateTime.now().toLocal(),
+                    }).then((value)=> showDialog(context: context, builder: (context)=>CustomDialog(
+                      title: 'Data Saved Successfully!',
+                    ))).then((value) =>  Navigator.push(context, MaterialPageRoute(builder: (context) => HomeScreen())));
+                  }
+
+                },
+
                 child: Container(
                   child: Center(child: Padding(
                     padding: const EdgeInsets.all(20.0),

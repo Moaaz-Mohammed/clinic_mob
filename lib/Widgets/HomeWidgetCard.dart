@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 
 class HomeWidgetCard extends StatelessWidget {
   const HomeWidgetCard({
-    required this.width,
-    required this.height,
+     required this.width,
+     required this.height,
     required this.text,
     required this.icon,
     required this.function,
@@ -21,8 +21,7 @@ class HomeWidgetCard extends StatelessWidget {
     return InkWell(
       onTap: function,
       child: Container(
-        width: width * 0.45,
-        height: height * 0.23,
+        padding: EdgeInsets.all(10),
         decoration: BoxDecoration(
             color: Colors.white70,
             borderRadius: BorderRadius.circular(20),
@@ -35,7 +34,7 @@ class HomeWidgetCard extends StatelessWidget {
               )
             ]),
         child: Padding(
-          padding: const EdgeInsets.all(20.0),
+          padding: const EdgeInsets.all(10.0),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,

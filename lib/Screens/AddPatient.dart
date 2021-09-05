@@ -37,11 +37,12 @@ class AddPatientScreen extends StatelessWidget {
           child: Column(
             children: [
               TextFormField(
-                validator: (value)
-                {
-                  if(value!.isEmpty)
-                    return 'Required Field';
-                },
+                validator: (value){
+                      if (value!.isEmpty) {
+                        return 'Required';
+                      }
+                      return null;
+                    },
                 controller: nameController,
                 decoration: InputDecoration(
                   hintText: 'Name',
@@ -92,11 +93,12 @@ class AddPatientScreen extends StatelessWidget {
               ),
               SizedBox(height:height*0.01),
               TextFormField(
-                validator: (value)
-                {
-                  if(value!.isEmpty)
-                    return 'Required Field';
-                },
+                validator: (value){
+                      if (value!.isEmpty) {
+                        return 'Required';
+                      }
+                      return null;
+                    },
                 controller: addressController,
                 decoration: InputDecoration(
                   hintText: 'Address',
@@ -107,11 +109,12 @@ class AddPatientScreen extends StatelessWidget {
               ),
               SizedBox(height:height*0.01),
               TextFormField(
-                validator: (value)
-                {
-                  if(value!.isEmpty)
-                    return 'Required Field';
-                },
+                validator: (value){
+                      if (value!.isEmpty) {
+                        return 'Required';
+                      }
+                      return null;
+                    },
                 controller:diagnosesController,
                 minLines: 3,
                 maxLines: 10,
@@ -124,11 +127,12 @@ class AddPatientScreen extends StatelessWidget {
               ),
               SizedBox(height:height*0.01),
               TextFormField(
-                validator: (value)
-                {
-                  if(value!.isEmpty)
-                    return 'Required Field';
-                },
+                validator: (value){
+                      if (value!.isEmpty) {
+                        return 'Required';
+                      }
+                      return null;
+                    },
                 controller: treatmentController,
                 minLines: 3,
                 maxLines: 10,
@@ -141,10 +145,11 @@ class AddPatientScreen extends StatelessWidget {
               ),
               SizedBox(height:height*0.01),
               TextFormField(
-                validator: (value)
-                {
-                  if(value!.isEmpty)
-                    return 'Required Field';
+                validator: (value){
+                  if (value!.isEmpty) {
+                    return 'Required';
+                  }
+                  return null;
                 },
                 controller: noteController,
                 minLines: 3,

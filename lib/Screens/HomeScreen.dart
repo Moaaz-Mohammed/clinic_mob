@@ -33,7 +33,9 @@ class HomeScreen extends StatelessWidget {
                             height: height,
                             text: 'Add Patient',
                             icon: Icons.add,
-                            function: () {}),
+                            function: () {
+                              Navigator.of(context).push(MaterialPageRoute(builder:(context)=>AddPatientScreen()));
+                            }),
                         HomeWidgetCard(
                             width: width,
                             height: height,

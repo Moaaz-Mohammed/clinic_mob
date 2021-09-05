@@ -1,4 +1,4 @@
-import 'package:clinic_mob/Screens/AddPatientScreen.dart';
+import 'package:clinic_mob/Screens/AddPatient.dart';
 import 'package:flutter/material.dart';
 
 import 'CustomDrawerHeader.dart';

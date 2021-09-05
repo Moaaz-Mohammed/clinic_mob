@@ -1,8 +1,8 @@
 import 'package:clinic_mob/Widgets/Drawer/CustomDrawer.dart';
 import 'package:clinic_mob/Widgets/HomeWidgetCard.dart';
 import 'package:flutter/material.dart';
-
-import 'AddPatientScreen.dart';
+import 'AddPatient.dart';
+import 'SearchScreen.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -30,7 +30,7 @@ class HomeScreen extends StatelessWidget {
                 text: 'Add Patient',
                 icon: Icons.add,
                 function: (){
-                  Navigator.of(context).push(MaterialPageRoute(builder: (context)=>AddPatientScreen()));
+                  Navigator.push(context,MaterialPageRoute(builder: (context)=>AddPatientScreen()));
                 },),
                 HomeWidgetCard(
                   width: width,
@@ -55,7 +55,9 @@ class HomeScreen extends StatelessWidget {
                   height:height,
                   text: 'Search',
                   icon: Icons.search,
-                  function: (){},),
+                  function: (){
+                    Navigator.push(context,MaterialPageRoute(builder:(context)=>SearchScreen()));
+                  },),
               ],
             ),
           ],

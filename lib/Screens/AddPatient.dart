@@ -6,8 +6,6 @@ import 'package:flutter/material.dart';
 class AddPatientScreen extends StatelessWidget {
   var formKey = GlobalKey<FormState>();
 
-  final Stream<QuerySnapshot> _PatientsStream =
-  FirebaseFirestore.instance.collection('Patients').snapshots();
   Stream collectionStream =
   FirebaseFirestore.instance.collection('Patients').snapshots();
 
@@ -179,7 +177,8 @@ class AddPatientScreen extends StatelessWidget {
                         "address": addressController.text,
                         "diagnoses": diagnosesController.text,
                         "treatment": treatmentController.text,
-                        "time": DateTime.now().toLocal(),
+                        "note": noteController.text,
+                        "time": DateTime.now().toLocal().toString(),
                         "id":id.toString(),
                       }).then((value) => ++id).then((value) => showDialog(
                           context: context,

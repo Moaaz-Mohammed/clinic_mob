@@ -12,6 +12,8 @@ class HomeScreen extends StatelessWidget {
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
+          title: Text('Home',style: TextStyle(fontSize:22,color:Colors.black),),
+          centerTitle: true,
           backgroundColor: Theme.of(context).scaffoldBackgroundColor,
           iconTheme: IconThemeData(color: Colors.black, size: height * 0.04),
         ),

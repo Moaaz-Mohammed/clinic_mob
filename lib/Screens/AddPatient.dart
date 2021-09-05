@@ -3,10 +3,14 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-import 'HomeScreen.dart';
-
 class AddPatientScreen extends StatelessWidget {
   var formKey = GlobalKey<FormState>();
+
+  final Stream<QuerySnapshot> _PatientsStream =
+  FirebaseFirestore.instance.collection('Patients').snapshots();
+  Stream collectionStream =
+  FirebaseFirestore.instance.collection('Patients').snapshots();
+
   @override
   Widget build(BuildContext context) {
     TextEditingController nameController = TextEditingController();
@@ -19,6 +23,7 @@ class AddPatientScreen extends StatelessWidget {
 
     double width = MediaQuery.of(context).size.width;
     double height = MediaQuery.of(context).size.height;
+    final firestoreInstance = FirebaseFirestore.instance;
     return Scaffold(
       appBar: AppBar(
         title: Text(
@@ -59,7 +64,6 @@ class AddPatientScreen extends StatelessWidget {
                 Row(children: [
                   Expanded(
                     child: TextFormField(
-                      keyboardType: TextInputType.number,
                       validator: (value) {
                         if (value!.isEmpty) {
                           return 'Required';
@@ -164,27 +168,18 @@ class AddPatientScreen extends StatelessWidget {
                 InkWell(
                   onTap: () {
                     if (formKey.currentState!.validate()) {
-                      final firestoreInstance = FirebaseFirestore.instance;
-                      firestoreInstance
-                          .collection("Patients")
-                          .add({
-                            "name": nameController.text,
-                            "age": ageController.text,
-                            "phone": phoneController.text,
-                            "address": addressController.text,
-                            "diagnoses": diagnosesController.text,
-                            "treatment": treatmentController.text,
-                            "time": DateTime.now().toLocal(),
-                          })
-                          .then((value) => showDialog(
-                              context: context,
-                              builder: (context) => CustomDialog(
-                                    title: 'Data Saved Successfully!',
-                                  )))
-                          .then((value) => Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => HomeScreen())));
+                      firestoreInstance.collection("Patients").add({
+                        "name": nameController.text,
+                        "age": ageController.text,
+                        "phone": phoneController.text,
+                        "address": addressController.text,
+                        "diagnoses": diagnosesController.text,
+                        "treatment": treatmentController.text,
+                        "time": DateTime.now().toLocal(),
+                        "id": 'AUTO INCREMENT',
+                      }).then((value) => showDialog(
+                          context: context,
+                          builder: (BuildContext context) => CustomDialog()));
                     }
                   },
                   child: Container(

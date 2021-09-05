@@ -1,5 +1,6 @@
 import 'package:clinic_mob/Screens/HomeScreen.dart';
 import 'package:clinic_mob/Widgets/CustomDialog.dart';
+import 'package:clinic_mob/Widgets/add_patient_custom_text_form_filed.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
@@ -49,8 +50,90 @@ class AddPatientScreen extends StatelessWidget {
               key: formKey,
               child: Column(
                 children: [
-                  SizedBox(height: height * 0.03),
+                  TextFormField(
 
+                  ),
+                  SizedBox(height: height * 0.03),
+                  AddPatientCustomTextFormField(
+                    hint: 'Name',
+                    controller: nameController,
+                    validator: (value){
+                      if (value!.isEmpty) {
+                        return 'Required';
+                      }
+                      return null;
+                    },
+                  ),
+                  SizedBox(height: height * 0.03),
+                  Row(
+                    children: [
+                      Expanded(
+                        child: AddPatientCustomTextFormField(
+                          hint: 'Age',
+                          controller: ageController,
+                          validator: (value){
+                            if (value!.isEmpty) {
+                              return 'Required';
+                            }
+                            return null;
+                          },
+                        ),
+                      ),
+                      SizedBox(
+                        width: width * 0.03,
+                      ),
+                      Expanded(
+                        child: AddPatientCustomTextFormField(
+                          hint: 'Phone',
+                          controller: phoneController,
+                          validator: (value){},
+                        ),
+                      ),
+                    ],
+                  ),
+                  SizedBox(height: height * 0.03),
+                  AddPatientCustomTextFormField(
+                    hint: 'Address',
+                    controller: addressController,
+                    validator: (value){
+                      if (value!.isEmpty) {
+                        return 'Required';
+                      }
+                      return null;
+                    },
+                  ),
+                  SizedBox(height: height * 0.03),
+                  AddPatientCustomTextFormField(
+                    minlines: 4,
+                    maxlines: 10,
+                    hint: 'Diagnoses',
+                    controller: diagnosesController,
+                    validator: (value){
+                      if (value!.isEmpty) {
+                        return 'Required';
+                      }
+                      return null;
+                    },
+                  ),
+                  SizedBox(height: height * 0.03),
+                  AddPatientCustomTextFormField(
+                    minlines: 4,
+                    maxlines: 10,
+                    hint: 'Treatment',
+                    controller: treatmentController,
+                    validator: (value){
+                      if (value!.isEmpty) {
+                        return 'Required';
+                      }
+                      return null;
+                    },
+                  ),
+                  SizedBox(height: height * 0.03),
+                  AddPatientCustomTextFormField(
+                    hint: 'Note',
+                    controller: noteController,
+                    validator: (value){},
+                  ),
                   SizedBox(height: height * 0.03),
                   Container(
                     width: width,

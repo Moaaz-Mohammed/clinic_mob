@@ -1,0 +1,67 @@
+import 'package:clinic_mob/Widgets/Drawer/CustomDrawer.dart';
+import 'package:clinic_mob/Widgets/HomeWidgetCard.dart';
+import 'package:flutter/material.dart';
+
+import 'AddPatientScreen.dart';
+
+class HomeScreen extends StatelessWidget {
+  const HomeScreen({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    double width = MediaQuery.of(context).size.width;
+    double height = MediaQuery.of(context).size.height;
+    return SafeArea(
+      child: Scaffold(
+        appBar: AppBar(
+          backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+          iconTheme: IconThemeData(color: Colors.black,size: height*0.04),
+        ),
+        body:Column(
+          mainAxisAlignment:MainAxisAlignment.center,
+          children:
+          [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                HomeWidgetCard(
+                  width: width,
+                height:height,
+                text: 'Add Patient',
+                icon: Icons.add,
+                function: (){
+                  Navigator.of(context).push(MaterialPageRoute(builder: (context)=>AddPatientScreen()));
+                },),
+                HomeWidgetCard(
+                  width: width,
+                height:height,
+                text: 'Show Patients',
+                icon: Icons.group,
+                function: (){},),
+              ],
+            ),
+            SizedBox(height:height*0.1),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                HomeWidgetCard(
+                  width: width,
+                  height:height,
+                  text: 'Profile',
+                  icon: Icons.person,
+                  function: (){},),
+                HomeWidgetCard(
+                  width: width,
+                  height:height,
+                  text: 'Search',
+                  icon: Icons.search,
+                  function: (){},),
+              ],
+            ),
+          ],
+        ),
+        drawer: CustomDrawer(),
+      ),
+    );
+  }
+}

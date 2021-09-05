@@ -11,6 +11,7 @@ class AddPatientScreen extends StatelessWidget {
   Stream collectionStream =
   FirebaseFirestore.instance.collection('Patients').snapshots();
 
+
   @override
   Widget build(BuildContext context) {
     TextEditingController nameController = TextEditingController();
@@ -24,6 +25,8 @@ class AddPatientScreen extends StatelessWidget {
     double width = MediaQuery.of(context).size.width;
     double height = MediaQuery.of(context).size.height;
     final firestoreInstance = FirebaseFirestore.instance;
+
+    var id = 0;
     return Scaffold(
       appBar: AppBar(
         title: Text(
@@ -167,7 +170,8 @@ class AddPatientScreen extends StatelessWidget {
                 ),
                 InkWell(
                   onTap: () {
-                    if (formKey.currentState!.validate()) {
+                    if (formKey.currentState!.validate())
+                    {
                       firestoreInstance.collection("Patients").add({
                         "name": nameController.text,
                         "age": ageController.text,
@@ -176,8 +180,8 @@ class AddPatientScreen extends StatelessWidget {
                         "diagnoses": diagnosesController.text,
                         "treatment": treatmentController.text,
                         "time": DateTime.now().toLocal(),
-                        "id": 'AUTO INCREMENT',
-                      }).then((value) => showDialog(
+                        "id":id.toString(),
+                      }).then((value) => id++).then((value) => showDialog(
                           context: context,
                           builder: (BuildContext context) => CustomDialog()));
                     }

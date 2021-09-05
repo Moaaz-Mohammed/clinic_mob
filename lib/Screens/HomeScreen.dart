@@ -2,6 +2,7 @@ import 'package:clinic_mob/Widgets/Drawer/CustomDrawer.dart';
 import 'package:clinic_mob/Widgets/HomeWidgetCard.dart';
 import 'package:flutter/material.dart';
 import 'AddPatient.dart';
+import 'PatientsScreen.dart';
 import 'SearchScreen.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -40,7 +41,9 @@ class HomeScreen extends StatelessWidget {
                   height: height,
                   text: 'Patients',
                   icon: Icons.group,
-                  function: () {},
+                  function: () {
+                    Navigator.of(context).push(MaterialPageRoute(builder: (context)=>PatientsScreen()));
+                  },
                 ),
               ],
             ),

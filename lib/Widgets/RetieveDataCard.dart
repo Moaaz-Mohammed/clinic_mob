@@ -1,6 +1,8 @@
 import 'package:clinic_mob/Widgets/CustomDialog.dart';
 import 'package:flutter/material.dart';
 
+import 'PatientDataScreen.dart';
+
 class RetieveDataCard extends StatelessWidget {
   const RetieveDataCard({
     required this.name,
@@ -37,7 +39,7 @@ class RetieveDataCard extends StatelessWidget {
         padding: const EdgeInsets.all(20.0),
         child: InkWell(
           onTap: () {
-            // showDialog(context: context, builder: (BuildContext context)=>CustomDialog());
+            Navigator.of(context).push(MaterialPageRoute(builder:(BuildContext context)=>PatientDataScreen()));
           },
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,

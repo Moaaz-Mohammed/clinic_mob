@@ -1,6 +1,7 @@
 import 'package:clinic_mob/Screens/AddPatient.dart';
 import 'package:flutter/material.dart';
 
+import '../Constants.dart';
 import 'CustomDrawerHeader.dart';
 
 class CustomDrawer extends StatelessWidget {
@@ -20,7 +21,7 @@ class CustomDrawer extends StatelessWidget {
         children: [
           CustomDrawerHeader(),
           Container(
-            height: height*0.75,
+            height: height * 0.75,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
@@ -31,13 +32,15 @@ class CustomDrawer extends StatelessWidget {
                     children: [
                       Text(
                         'Profile',
-                        style: TextStyle(fontSize: width * 0.06),
+                        style: TextStyle(
+                            fontSize: width * 0.06, color: grey_color),
                       ),
                       Icon(Icons.arrow_forward_ios)
                     ],
                   ),
-                  leading: Icon(Icons.person,size: width * 0.1,color: Colors.black,),
-                  onTap: (){},
+                  leading:
+                      Icon(Icons.person, size: width * 0.1, color: grey_color),
+                  onTap: () {},
                 ),
                 //Patients
                 ListTile(
@@ -46,13 +49,15 @@ class CustomDrawer extends StatelessWidget {
                     children: [
                       Text(
                         'Patients',
-                        style: TextStyle(fontSize: width * 0.06),
+                        style: TextStyle(
+                            fontSize: width * 0.06, color: grey_color),
                       ),
-                      Icon(Icons.arrow_forward_ios)
+                      Icon(Icons.arrow_forward_ios, color: grey_color)
                     ],
                   ),
-                  leading: Icon(Icons.group,size: width * 0.1,color: Colors.black,),
-                  onTap: (){},
+                  leading:
+                      Icon(Icons.group, size: width * 0.1, color: grey_color),
+                  onTap: () {},
                 ),
                 //Add Patient
                 ListTile(
@@ -61,14 +66,17 @@ class CustomDrawer extends StatelessWidget {
                     children: [
                       Text(
                         'Add Patient',
-                        style: TextStyle(fontSize: width * 0.06),
+                        style: TextStyle(
+                            fontSize: width * 0.06, color: grey_color),
                       ),
-                      Icon(Icons.arrow_forward_ios)
+                      Icon(Icons.arrow_forward_ios, color: grey_color)
                     ],
                   ),
-                  leading: Icon(Icons.add,size: width * 0.1,color: Colors.black,),
-                  onTap: (){
-                    Navigator.of(context).push(MaterialPageRoute(builder: (context)=>AddPatientScreen()));
+                  leading:
+                      Icon(Icons.add, size: width * 0.1, color: grey_color),
+                  onTap: () {
+                    Navigator.of(context).push(MaterialPageRoute(
+                        builder: (context) => AddPatientScreen()));
                   },
                 ),
                 //Search
@@ -78,15 +86,17 @@ class CustomDrawer extends StatelessWidget {
                     children: [
                       Text(
                         'Search',
-                        style: TextStyle(fontSize: width * 0.06),
+                        style: TextStyle(
+                            fontSize: width * 0.06, color: grey_color),
                       ),
-                      Icon(Icons.arrow_forward_ios)
+                      Icon(Icons.arrow_forward_ios, color: grey_color)
                     ],
                   ),
-                  leading: Icon(Icons.search,size: width * 0.1,color: Colors.black,),
-                  onTap: (){},
+                  leading:
+                      Icon(Icons.search, size: width * 0.1, color: grey_color),
+                  onTap: () {},
                 ),
-                SizedBox(height:height * 0.2),
+                SizedBox(height: height * 0.2),
                 //Logout
                 ListTile(
                   title: Row(
@@ -94,13 +104,15 @@ class CustomDrawer extends StatelessWidget {
                     children: [
                       Text(
                         'Logout',
-                        style: TextStyle(fontSize: width * 0.06),
+                        style: TextStyle(
+                            fontSize: width * 0.06, color: grey_color),
                       ),
-                      Icon(Icons.arrow_forward_ios)
+                      Icon(Icons.arrow_forward_ios, color: grey_color)
                     ],
                   ),
-                  leading: Icon(Icons.logout,size: width * 0.1,color: Colors.black,),
-                  onTap: (){},
+                  leading:
+                      Icon(Icons.logout, size: width * 0.1, color: grey_color),
+                  onTap: () {},
                 ),
               ],
             ),

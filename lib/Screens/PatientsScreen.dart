@@ -45,35 +45,23 @@ class PatientsScreen extends StatelessWidget {
                         snapshot.data!.docs.map((DocumentSnapshot document) {
                   Map<String, dynamic> data =
                       document.data() as Map<String, dynamic>;
-                  return Card(
-                    child: ListTile(
-                      title: Center(
-                        child: RetieveDataCard(
-                            name: '${data['name']}',
-                            date: '${data['time']}',
-                            id: '${data['id']}',
-                            age: '${data['age']}',
-                            phone: '${data['phone']}',
-                            address: '${data['address']}',
-                            treatment: '${data['treatment']}',
-                            diagnoses: '${data['diagnoses']}',
-                            note: '${data['note']}'),
-                      ),
-                      subtitle: TextButton(
-                        child: Row(
-                          children: [
-                            Text('Delete Patient'),
-                            Icon(Icons.delete)
-                          ],
+                  return ListTile(
+                    title: Row(
+                      children: [
+                        Center(
+                          child: RetieveDataCard(
+                              name: '${data['name']}',
+                              date: '${data['time']}',
+                              id: '${data['id']}',
+                              age: '${data['age']}',
+                              phone: '${data['phone']}',
+                              address: '${data['address']}',
+                              treatment: '${data['treatment']}',
+                              diagnoses: '${data['diagnoses']}',
+                              note: '${data['note']}'),
+
                         ),
-                        onPressed: () {
-                          FirebaseFirestore.instance
-                              .collection('Patients')
-                              .doc(document.id)
-                              .delete()
-                              .then((value) => print('Deleted Successfully!'));
-                        },
-                      ),
+                      ],
                     ),
                   );
                 }).toList());
@@ -81,3 +69,19 @@ class PatientsScreen extends StatelessWidget {
     );
   }
 }
+//Delete a document from firebase collection button
+// TextButton(
+// child: Row(
+// children: [
+// Text('Delete Patient'),
+// Icon(Icons.delete)
+// ],
+// ),
+// onPressed: () {
+// FirebaseFirestore.instance
+//     .collection('Patients')
+//     .doc(document.id)
+//     .delete()
+//     .then((value) => print('Deleted Successfully!'));
+// },
+// ),

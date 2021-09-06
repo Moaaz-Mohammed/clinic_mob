@@ -1,3 +1,4 @@
+import 'package:clinic_mob/Widgets/CustomDialog.dart';
 import 'package:flutter/material.dart';
 
 class RetieveDataCard extends StatelessWidget {
@@ -27,78 +28,43 @@ class RetieveDataCard extends StatelessWidget {
     double width = MediaQuery.of(context).size.width;
     double height = MediaQuery.of(context).size.height;
     return Container(
+      width: width * 0.9,
       decoration: BoxDecoration(
-          color: Colors.white70,
-          borderRadius: BorderRadius.circular(20),
-          boxShadow: [
-            BoxShadow(
-              color: Colors.grey.withOpacity(0.5),
-              spreadRadius: 3,
-              blurRadius: 1,
-              offset: Offset(0, 3),
-            )
-          ]),
+        color: Colors.white70,
+        borderRadius: BorderRadius.circular(20),
+      ),
       child: Padding(
         padding: const EdgeInsets.all(20.0),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            Text(
-              id,
-              style: TextStyle(
-                  fontSize: width * 0.06, fontWeight: FontWeight.w600),
-              textAlign: TextAlign.center,
-            ),
-            Text(
-              date,
-              style: TextStyle(
-                  fontSize: width * 0.06, fontWeight: FontWeight.w600),
-              textAlign: TextAlign.center,
-            ),
-            Text(
-              name,
-              style: TextStyle(
-                  fontSize: width * 0.06, fontWeight: FontWeight.w600),
-              textAlign: TextAlign.center,
-            ),
-            Text(
-              age,
-              style: TextStyle(
-                  fontSize: width * 0.06, fontWeight: FontWeight.w600),
-              textAlign: TextAlign.center,
-            ),
-            Text(
-              phone,
-              style: TextStyle(
-                  fontSize: width * 0.06, fontWeight: FontWeight.w600),
-              textAlign: TextAlign.center,
-            ),
-            Text(
-              address,
-              style: TextStyle(
-                  fontSize: width * 0.06, fontWeight: FontWeight.w600),
-              textAlign: TextAlign.center,
-            ),
-            Text(
-              diagnoses,
-              style: TextStyle(
-                  fontSize: width * 0.06, fontWeight: FontWeight.w600),
-              textAlign: TextAlign.center,
-            ),
-            Text(
-              treatment,
-              style: TextStyle(
-                  fontSize: width * 0.06, fontWeight: FontWeight.w600),
-              textAlign: TextAlign.center,
-            ),
-            Text(
-              note,
-              style: TextStyle(
-                  fontSize: width * 0.06, fontWeight: FontWeight.w600),
-              textAlign: TextAlign.center,
-            ),
-          ],
+        child: InkWell(
+          onTap: () {
+            // showDialog(context: context, builder: (BuildContext context)=>CustomDialog());
+          },
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text(
+                id,
+                style: TextStyle(
+                    fontSize: width * 0.06, fontWeight: FontWeight.w600),
+                textAlign: TextAlign.center,
+              ),
+              Text(
+                name,
+                style: TextStyle(
+                    fontSize: width * 0.06, fontWeight: FontWeight.w600),
+                textAlign: TextAlign.center,
+              ),
+              Container(
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(5),
+                    color: Colors.grey,
+                  ),
+                  child: Padding(
+                    padding: const EdgeInsets.only(top: 15.0, bottom: 15,right:5,left: 5),
+                    child: Icon(Icons.arrow_forward_ios),
+                  ))
+            ],
+          ),
         ),
       ),
     );

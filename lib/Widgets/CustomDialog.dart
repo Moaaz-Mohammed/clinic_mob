@@ -1,11 +1,14 @@
 import 'package:clinic_mob/Screens/HomeScreen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:pdf/pdf.dart';
 
 
 class CustomDialog extends StatelessWidget {
+
   @override
   Widget build(BuildContext context) {
+
     double height = MediaQuery.of(context).size.height;
     double width = MediaQuery.of(context).size.width;
     return AlertDialog(
@@ -60,7 +63,10 @@ class CustomDialog extends StatelessWidget {
                ),
                SizedBox(width: width * 0.02,),
                InkWell(
-                 onTap:(){},
+                 onTap:(){
+
+
+                 },
                  child: Container(
                    child: Row(
                      children: [

@@ -178,8 +178,8 @@ class AddPatientScreen extends StatelessWidget {
                         "diagnoses": diagnosesController.text,
                         "treatment": treatmentController.text,
                         "note": noteController.text,
+                        "id": id.toString(),
                         "time": DateTime.now().toLocal().toString(),
-                        "id":id.toString(),
                       }).then((value) => ++id).then((value) => showDialog(
                           context: context,
                           builder: (BuildContext context) => CustomDialog()));

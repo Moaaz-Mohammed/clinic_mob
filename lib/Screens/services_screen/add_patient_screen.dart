@@ -11,7 +11,8 @@ import '../../constants.dart';
 
 class AddPatientScreen extends StatelessWidget {
   const AddPatientScreen({Key? key}) : super(key: key);
-
+  // to define formkey and avoid disappearing the keyboard
+ static final GlobalKey<FormState> formKey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
     TextEditingController nameController = TextEditingController();
@@ -21,7 +22,7 @@ class AddPatientScreen extends StatelessWidget {
     TextEditingController treatmentController = TextEditingController();
     TextEditingController phoneController = TextEditingController();
     TextEditingController noteController = TextEditingController();
-    var formKey = GlobalKey<FormState>();
+
     Store _store = Store();
     double width = MediaQuery.of(context).size.width;
     double height = MediaQuery.of(context).size.height;
@@ -35,7 +36,8 @@ class AddPatientScreen extends StatelessWidget {
         },
         icon:Icon(Icons.arrow_back_ios,color: Colors.blueGrey,)),
       ),
-      body: StreamBuilder<QuerySnapshot>(
+      body: StreamBuilder<QuerySnapshot>
+            (
           stream: FirebaseFirestore.instance
               .collection(Constants.patientCollection)
               .orderBy(Constants.patientId, descending: true)

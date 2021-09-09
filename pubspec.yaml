@@ -13,6 +13,7 @@ dependencies:
   flutter:
     sdk: flutter
 
+  page_transition:
   #Apple Icons
   cupertino_icons: ^1.0.2
 
@@ -23,6 +24,11 @@ dependencies:
   #Print
   printing: ^5.5.0
   pdf: ^3.5.0
+
+  #State Management
+
+
+
 
 dev_dependencies:
   flutter_test:

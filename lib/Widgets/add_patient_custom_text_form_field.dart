@@ -4,31 +4,33 @@ class AddPatientCustomTextFormField extends StatelessWidget {
   const AddPatientCustomTextFormField({
     Key? key,
     required this.controller,
-    required this.hint,
-    required this.validator,
-    this.minlines,
-    this.maxlines,
+    required this.title,
+    this.maxLine = 1,
   });
 
-  final validator;
   final controller;
-  final hint;
-  final minlines;
-  final maxlines;
+  final title;
+  final maxLine;
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
-      minLines: minlines,
-      maxLines: maxlines,
-      validator: validator,
+      validator: (value) {
+        if (value!.isEmpty) {
+          return '$title Required';
+        }
+        return null;
+      },
       controller: controller,
       decoration: InputDecoration(
+        filled: true,
+        fillColor: Colors.white,
+        hintText: title,
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(10.0),
         ),
-        hintText: hint,
       ),
+      maxLines: maxLine,
     );
   }
 }
